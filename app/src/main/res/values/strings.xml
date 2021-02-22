@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FutureGoals</string>
+    <string name="title_dynamicfeature">Register Goals</string>
+    <string name="title_register">Register Goals</string>
+    <string name="title_review">Goal Review</string>
+    <string name="title_launcher">Launcher APP</string>
+</resources>

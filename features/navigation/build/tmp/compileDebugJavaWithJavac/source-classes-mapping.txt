@@ -1,0 +1,8 @@
+br/com/gabrielmarcos/navigation/BuildConfig.java
+ br.com.gabrielmarcos.navigation.BuildConfig
+br/com/gabrielmarcos/navigation/di/DaggerNavigationComponent.java
+ br.com.gabrielmarcos.navigation.di.DaggerNavigationComponent
+ br.com.gabrielmarcos.navigation.di.DaggerNavigationComponent$1
+ br.com.gabrielmarcos.navigation.di.DaggerNavigationComponent$Builder
+br/com/gabrielmarcos/navigation/NavigationManagerFragment_MembersInjector.java
+ br.com.gabrielmarcos.navigation.NavigationManagerFragment_MembersInjector

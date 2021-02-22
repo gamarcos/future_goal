@@ -1,0 +1,2 @@
+br/com/gabrielmarcos/review/BuildConfig.java
+ br.com.gabrielmarcos.review.BuildConfig

@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/colors.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,105",
+                        "endColumns": "49,51",
+                        "endOffsets": "100,152"
+                    }
+                },
+                {
+                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "59",
+                        "endOffsets": "71"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "157",
+                        "endColumns": "59",
+                        "endOffsets": "212"
+                    }
+                }
+            ]
+        }
+    ]
+}

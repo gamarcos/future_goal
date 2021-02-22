@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/build/intermediates/res/merged/debug/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/marcosgabriel/.gradle/caches/transforms-2/files-2.1/5838617c11cad4860105cd5b07eb82cc/appcompat-1.0.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/marcosgabriel/.gradle/caches/transforms-2/files-2.1/5838617c11cad4860105cd5b07eb82cc/appcompat-1.0.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

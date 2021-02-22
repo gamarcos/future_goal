@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_ic_favorites.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/ic_favorites.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/menu_toolbar_menu.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/menu/toolbar_menu.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_avd_theme_night_to_day.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/avd_theme_night_to_day.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/navigation_navigation_goals_graph.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/navigation/navigation_goals_graph.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_avd_theme_day_to_night.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/avd_theme_day_to_night.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_ic_theme_day.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/ic_theme_day.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_sl_navigation.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/sl_navigation.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_ic_list.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/ic_list.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_asl_theme.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/asl_theme.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/layout_fragment_features_navigation.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/layout/fragment_features_navigation.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/drawable_ic_theme_night.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/drawable/ic_theme_night.xml"
+    }
+]

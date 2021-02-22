@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/build/intermediates/res/merged/debug/layout_adapter_home_goals_item.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/src/main/res/layout/adapter_home_goals_item.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/build/intermediates/res/merged/debug/layout_fragment_home_goals.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/src/main/res/layout/fragment_home_goals.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/build/intermediates/res/merged/debug/drawable_ic_add_24.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/src/main/res/drawable/ic_add_24.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/build/intermediates/res/merged/debug/layout_fragment_insert_goals.xml.flat",
+        "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/register/src/main/res/layout/fragment_insert_goals.xml"
+    }
+]

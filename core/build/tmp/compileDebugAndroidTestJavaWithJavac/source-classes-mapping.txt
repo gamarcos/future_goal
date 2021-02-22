@@ -1,0 +1,2 @@
+br/com/gabrielmarcos/core/test/BuildConfig.java
+ br.com.gabrielmarcos.core.test.BuildConfig

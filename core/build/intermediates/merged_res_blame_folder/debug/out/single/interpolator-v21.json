@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/build/intermediates/res/merged/debug/interpolator-v21/mtrl_fast_out_linear_in.xml",
+        "source": "/Users/marcosgabriel/.gradle/caches/transforms-2/files-2.1/d4dbd15cdce54154bd86b0e56382b511/material-1.0.0/res/interpolator-v21/mtrl_fast_out_linear_in.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/build/intermediates/res/merged/debug/interpolator-v21/mtrl_fast_out_slow_in.xml",
+        "source": "/Users/marcosgabriel/.gradle/caches/transforms-2/files-2.1/d4dbd15cdce54154bd86b0e56382b511/material-1.0.0/res/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/build/intermediates/res/merged/debug/interpolator-v21/mtrl_linear_out_slow_in.xml",
+        "source": "/Users/marcosgabriel/.gradle/caches/transforms-2/files-2.1/d4dbd15cdce54154bd86b0e56382b511/material-1.0.0/res/interpolator-v21/mtrl_linear_out_slow_in.xml"
+    }
+]

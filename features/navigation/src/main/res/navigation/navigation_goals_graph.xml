@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_goals"
+    app:startDestination="@id/goals_home">
+
+    <fragment
+        android:id="@+id/goals_home"
+        android:name="br.com.gabrielmarcos.register.home.ui.HomeGoalsFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_home_to_insert_goal"
+            app:destination="@+id/goals_insert"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/characters_list_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/goals_insert"
+        android:name="br.com.gabrielmarcos.register.insert.ui.InsertGoalsFragment"
+        android:label="Insert" />
+
+</navigation>

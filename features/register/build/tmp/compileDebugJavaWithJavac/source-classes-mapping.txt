@@ -1,0 +1,28 @@
+br/com/gabrielmarcos/register/home/ui/adapter/HomeGoalsTouchHelper_Factory.java
+ br.com.gabrielmarcos.register.home.ui.adapter.HomeGoalsTouchHelper_Factory
+br/com/gabrielmarcos/register/BuildConfig.java
+ br.com.gabrielmarcos.register.BuildConfig
+br/com/gabrielmarcos/register/home/ui/HomeGoalsViewModel_Factory.java
+ br.com.gabrielmarcos.register.home.ui.HomeGoalsViewModel_Factory
+br/com/gabrielmarcos/register/insert/ui/InsertGoalsViewModel_Factory.java
+ br.com.gabrielmarcos.register.insert.ui.InsertGoalsViewModel_Factory
+br/com/gabrielmarcos/register/home/di/HomeGoalsModule_ProvidesHomeGoalsViewModelFactory.java
+ br.com.gabrielmarcos.register.home.di.HomeGoalsModule_ProvidesHomeGoalsViewModelFactory
+br/com/gabrielmarcos/register/home/di/DaggerHomeGoalsComponent.java
+ br.com.gabrielmarcos.register.home.di.DaggerHomeGoalsComponent
+ br.com.gabrielmarcos.register.home.di.DaggerHomeGoalsComponent$1
+ br.com.gabrielmarcos.register.home.di.DaggerHomeGoalsComponent$Builder
+ br.com.gabrielmarcos.register.home.di.DaggerHomeGoalsComponent$br_com_gabrielmarcos_core_di_CoreComponent_goalDAO
+br/com/gabrielmarcos/register/home/ui/HomeGoalsFragment_MembersInjector.java
+ br.com.gabrielmarcos.register.home.ui.HomeGoalsFragment_MembersInjector
+br/com/gabrielmarcos/register/home/di/HomeGoalsModule_ProvidesHomeGoalsAdapterFactory.java
+ br.com.gabrielmarcos.register.home.di.HomeGoalsModule_ProvidesHomeGoalsAdapterFactory
+br/com/gabrielmarcos/register/insert/ui/InsertGoalsFragment_MembersInjector.java
+ br.com.gabrielmarcos.register.insert.ui.InsertGoalsFragment_MembersInjector
+br/com/gabrielmarcos/register/insert/di/DaggerInsertGoalsComponent.java
+ br.com.gabrielmarcos.register.insert.di.DaggerInsertGoalsComponent
+ br.com.gabrielmarcos.register.insert.di.DaggerInsertGoalsComponent$1
+ br.com.gabrielmarcos.register.insert.di.DaggerInsertGoalsComponent$Builder
+ br.com.gabrielmarcos.register.insert.di.DaggerInsertGoalsComponent$br_com_gabrielmarcos_core_di_CoreComponent_goalDAO
+br/com/gabrielmarcos/register/insert/di/InsertGoalsModule_ProvidesInsertGoalsFragmentFactory.java
+ br.com.gabrielmarcos.register.insert.di.InsertGoalsModule_ProvidesInsertGoalsFragmentFactory

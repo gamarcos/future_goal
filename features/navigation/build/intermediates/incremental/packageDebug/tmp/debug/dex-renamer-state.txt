@@ -1,0 +1,4 @@
+#Mon Feb 22 18:23:20 BRT 2021
+base.0=/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
