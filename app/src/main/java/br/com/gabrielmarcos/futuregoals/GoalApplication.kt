@@ -53,7 +53,7 @@ class GoalApplication: SplitCompatApplication() {
 
     private fun initRandomNightMode() {
         if (BuildConfig.DEBUG) {
-            themeUtils.setNightMode(Random.nextBoolean())
+            themeUtils.setNightMode(false)
         }
     }
 }

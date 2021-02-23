@@ -7,7 +7,7 @@
 7    android:versionName="1.0.0" >
 8
 9    <uses-sdk
-10        android:minSdkVersion="24"
+10        android:minSdkVersion="26"
 10-->/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/AndroidManifest.xml
 11        android:targetSdkVersion="29" />
 11-->/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/AndroidManifest.xml

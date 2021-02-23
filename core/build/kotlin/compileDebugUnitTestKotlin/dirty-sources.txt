@@ -1,1 +1,0 @@
-/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/src/test/java/br/com/gabrielmarcos/core/ExampleUnitTest.kt

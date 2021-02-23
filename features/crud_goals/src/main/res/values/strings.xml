@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="insert_goal_hint_title">Título</string>
+    <string name="insert_goal_title_title">Título</string>
+
+    <string name="insert_goal_hint_description">Descrição</string>
+    <string name="insert_goal_title_description">Descrição</string>
+
+    <string name="insert_goal_title_status">Selecione um status</string>
+
+    <string name="insert_goal_hint_finish_date">Selecione o termino da meta</string>
+
+    <string name="insert_goal_save_title">Salvar</string>
+</resources>

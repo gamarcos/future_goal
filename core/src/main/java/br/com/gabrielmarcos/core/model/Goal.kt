@@ -11,14 +11,14 @@ data class Goal(
     @ColumnInfo(name = "title") val title: String = "",
     @ColumnInfo(name = "description") val description: String = "",
     @ColumnInfo(name = "status") val status: String? = Status.TODO.name,
-    @ColumnInfo(name = "initAt") val initAt: Long = 0,
-    @ColumnInfo(name = "finishAt") val finishAt: Long? = 0,
+    @ColumnInfo(name = "initAt") val initAt: String = "",
+    @ColumnInfo(name = "finishAt") val finishAt: String? = "",
     @ColumnInfo(name = "remember") val remember: Boolean? = false,
-    @ColumnInfo(name = "rememberAt") val rememberAt: Long? = 0
+    @ColumnInfo(name = "rememberAt") val rememberAt: String? = ""
 )
 
 enum class Status {
     TODO,
     PROGRESS,
-    DONE
+    DONE;
 }

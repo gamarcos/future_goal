@@ -3,6 +3,7 @@ package br.com.gabrielmarcos.core.database;
 import android.database.Cursor;
 import androidx.lifecycle.LiveData;
 import androidx.room.CoroutinesRoom;
+import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
@@ -14,7 +15,6 @@ import br.com.gabrielmarcos.core.model.Goal;
 import java.lang.Boolean;
 import java.lang.Exception;
 import java.lang.Integer;
-import java.lang.Long;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -30,6 +30,8 @@ public final class GoalDAO_Impl implements GoalDAO {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter<Goal> __insertionAdapterOfGoal;
+
+  private final EntityDeletionOrUpdateAdapter<Goal> __updateAdapterOfGoal;
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAllGoals;
 
@@ -61,11 +63,15 @@ public final class GoalDAO_Impl implements GoalDAO {
         } else {
           stmt.bindString(4, value.getStatus());
         }
-        stmt.bindLong(5, value.getInitAt());
+        if (value.getInitAt() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getInitAt());
+        }
         if (value.getFinishAt() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindLong(6, value.getFinishAt());
+          stmt.bindString(6, value.getFinishAt());
         }
         final Integer _tmp;
         _tmp = value.getRemember() == null ? null : (value.getRemember() ? 1 : 0);
@@ -77,8 +83,57 @@ public final class GoalDAO_Impl implements GoalDAO {
         if (value.getRememberAt() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindLong(8, value.getRememberAt());
+          stmt.bindString(8, value.getRememberAt());
         }
+      }
+    };
+    this.__updateAdapterOfGoal = new EntityDeletionOrUpdateAdapter<Goal>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `future_goal` SET `id` = ?,`title` = ?,`description` = ?,`status` = ?,`initAt` = ?,`finishAt` = ?,`remember` = ?,`rememberAt` = ? WHERE `id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, Goal value) {
+        stmt.bindLong(1, value.getId());
+        if (value.getTitle() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getTitle());
+        }
+        if (value.getDescription() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getDescription());
+        }
+        if (value.getStatus() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getStatus());
+        }
+        if (value.getInitAt() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getInitAt());
+        }
+        if (value.getFinishAt() == null) {
+          stmt.bindNull(6);
+        } else {
+          stmt.bindString(6, value.getFinishAt());
+        }
+        final Integer _tmp;
+        _tmp = value.getRemember() == null ? null : (value.getRemember() ? 1 : 0);
+        if (_tmp == null) {
+          stmt.bindNull(7);
+        } else {
+          stmt.bindLong(7, _tmp);
+        }
+        if (value.getRememberAt() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getRememberAt());
+        }
+        stmt.bindLong(9, value.getId());
       }
     };
     this.__preparedStmtOfDeleteAllGoals = new SharedSQLiteStatement(__db) {
@@ -98,24 +153,41 @@ public final class GoalDAO_Impl implements GoalDAO {
   }
 
   @Override
-  public Object insertGoal(final Goal arg0, final Continuation<? super Unit> arg1) {
+  public Object insertGoal(final Goal goal, final Continuation<? super Unit> p1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
-          __insertionAdapterOfGoal.insert(arg0);
+          __insertionAdapterOfGoal.insert(goal);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, p1);
   }
 
   @Override
-  public Object deleteAllGoals(final Continuation<? super Unit> arg0) {
+  public Object updateGoalById(final Goal goal, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __updateAdapterOfGoal.handle(goal);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, p1);
+  }
+
+  @Override
+  public Object deleteAllGoals(final Continuation<? super Unit> p0) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -130,17 +202,17 @@ public final class GoalDAO_Impl implements GoalDAO {
           __preparedStmtOfDeleteAllGoals.release(_stmt);
         }
       }
-    }, arg0);
+    }, p0);
   }
 
   @Override
-  public Object deleteGoalByID(final long arg0, final Continuation<? super Unit> arg1) {
+  public Object deleteGoalByID(final long id, final Continuation<? super Unit> p1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteGoalByID.acquire();
         int _argIndex = 1;
-        _stmt.bindLong(_argIndex, arg0);
+        _stmt.bindLong(_argIndex, id);
         __db.beginTransaction();
         try {
           _stmt.executeUpdateDelete();
@@ -151,7 +223,7 @@ public final class GoalDAO_Impl implements GoalDAO {
           __preparedStmtOfDeleteGoalByID.release(_stmt);
         }
       }
-    }, arg1);
+    }, p1);
   }
 
   @Override
@@ -182,14 +254,10 @@ public final class GoalDAO_Impl implements GoalDAO {
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
             final String _tmpStatus;
             _tmpStatus = _cursor.getString(_cursorIndexOfStatus);
-            final long _tmpInitAt;
-            _tmpInitAt = _cursor.getLong(_cursorIndexOfInitAt);
-            final Long _tmpFinishAt;
-            if (_cursor.isNull(_cursorIndexOfFinishAt)) {
-              _tmpFinishAt = null;
-            } else {
-              _tmpFinishAt = _cursor.getLong(_cursorIndexOfFinishAt);
-            }
+            final String _tmpInitAt;
+            _tmpInitAt = _cursor.getString(_cursorIndexOfInitAt);
+            final String _tmpFinishAt;
+            _tmpFinishAt = _cursor.getString(_cursorIndexOfFinishAt);
             final Boolean _tmpRemember;
             final Integer _tmp;
             if (_cursor.isNull(_cursorIndexOfRemember)) {
@@ -198,12 +266,8 @@ public final class GoalDAO_Impl implements GoalDAO {
               _tmp = _cursor.getInt(_cursorIndexOfRemember);
             }
             _tmpRemember = _tmp == null ? null : _tmp != 0;
-            final Long _tmpRememberAt;
-            if (_cursor.isNull(_cursorIndexOfRememberAt)) {
-              _tmpRememberAt = null;
-            } else {
-              _tmpRememberAt = _cursor.getLong(_cursorIndexOfRememberAt);
-            }
+            final String _tmpRememberAt;
+            _tmpRememberAt = _cursor.getString(_cursorIndexOfRememberAt);
             _item = new Goal(_tmpId,_tmpTitle,_tmpDescription,_tmpStatus,_tmpInitAt,_tmpFinishAt,_tmpRemember,_tmpRememberAt);
             _result.add(_item);
           }
@@ -218,5 +282,61 @@ public final class GoalDAO_Impl implements GoalDAO {
         _statement.release();
       }
     });
+  }
+
+  @Override
+  public Object getGoalByID(final long id, final Continuation<? super Goal> p1) {
+    final String _sql = "SELECT * FROM future_goal WHERE id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, id);
+    return CoroutinesRoom.execute(__db, false, new Callable<Goal>() {
+      @Override
+      public Goal call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+          final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+          final int _cursorIndexOfInitAt = CursorUtil.getColumnIndexOrThrow(_cursor, "initAt");
+          final int _cursorIndexOfFinishAt = CursorUtil.getColumnIndexOrThrow(_cursor, "finishAt");
+          final int _cursorIndexOfRemember = CursorUtil.getColumnIndexOrThrow(_cursor, "remember");
+          final int _cursorIndexOfRememberAt = CursorUtil.getColumnIndexOrThrow(_cursor, "rememberAt");
+          final Goal _result;
+          if(_cursor.moveToFirst()) {
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpTitle;
+            _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            final String _tmpDescription;
+            _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+            final String _tmpStatus;
+            _tmpStatus = _cursor.getString(_cursorIndexOfStatus);
+            final String _tmpInitAt;
+            _tmpInitAt = _cursor.getString(_cursorIndexOfInitAt);
+            final String _tmpFinishAt;
+            _tmpFinishAt = _cursor.getString(_cursorIndexOfFinishAt);
+            final Boolean _tmpRemember;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfRemember)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfRemember);
+            }
+            _tmpRemember = _tmp == null ? null : _tmp != 0;
+            final String _tmpRememberAt;
+            _tmpRememberAt = _cursor.getString(_cursorIndexOfRememberAt);
+            _result = new Goal(_tmpId,_tmpTitle,_tmpDescription,_tmpStatus,_tmpInitAt,_tmpFinishAt,_tmpRemember,_tmpRememberAt);
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, p1);
   }
 }

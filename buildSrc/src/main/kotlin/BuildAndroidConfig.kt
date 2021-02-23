@@ -5,7 +5,7 @@ object BuildAndroidConfig {
     const val APPLICATION_ID = "br.com.gabrielmarcos.futuregoals"
 
     const val COMPILE_SDK_VERSION = 30
-    const val MIN_SDK = 24
+    const val MIN_SDK = 26
     const val TARGET_SDK = 29
     const val BUILD_TOOLS_VERSION = "30.0.2"
 

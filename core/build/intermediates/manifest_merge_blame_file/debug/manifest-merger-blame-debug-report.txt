@@ -4,7 +4,7 @@
 4    package="br.com.gabrielmarcos.core" >
 5
 6    <uses-sdk
-7        android:minSdkVersion="24"
+7        android:minSdkVersion="26"
 7-->/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/src/main/AndroidManifest.xml
 8        android:targetSdkVersion="29" />
 8-->/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/core/src/main/AndroidManifest.xml

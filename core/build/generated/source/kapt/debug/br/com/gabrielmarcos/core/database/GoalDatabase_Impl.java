@@ -27,12 +27,12 @@ public final class GoalDatabase_Impl extends GoalDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `future_goal` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `status` TEXT, `initAt` INTEGER NOT NULL, `finishAt` INTEGER, `remember` INTEGER, `rememberAt` INTEGER)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `future_goal` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `status` TEXT, `initAt` TEXT NOT NULL, `finishAt` TEXT, `remember` INTEGER, `rememberAt` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '856394753229c208784004523a8bce50')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '36e74c6e06860176d2623e0ac8212689')");
       }
 
       @Override
@@ -81,10 +81,10 @@ public final class GoalDatabase_Impl extends GoalDatabase {
         _columnsFutureGoal.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("description", new TableInfo.Column("description", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("status", new TableInfo.Column("status", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFutureGoal.put("initAt", new TableInfo.Column("initAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFutureGoal.put("finishAt", new TableInfo.Column("finishAt", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFutureGoal.put("initAt", new TableInfo.Column("initAt", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFutureGoal.put("finishAt", new TableInfo.Column("finishAt", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("remember", new TableInfo.Column("remember", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFutureGoal.put("rememberAt", new TableInfo.Column("rememberAt", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFutureGoal.put("rememberAt", new TableInfo.Column("rememberAt", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysFutureGoal = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesFutureGoal = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoFutureGoal = new TableInfo("future_goal", _columnsFutureGoal, _foreignKeysFutureGoal, _indicesFutureGoal);
@@ -96,7 +96,7 @@ public final class GoalDatabase_Impl extends GoalDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "856394753229c208784004523a8bce50", "431606b06f3a06a25ab37d8e21caebd3");
+    }, "36e74c6e06860176d2623e0ac8212689", "3957cd5fbaf7b0e201101d5a6a5c23dd");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

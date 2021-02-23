@@ -26,6 +26,7 @@ object Android {
     const val ANDROIDX = "androidx.core:core-ktx:${BuildDependenciesVersions.ANDROIDX_CORE_KTX}"
     const val ANDROIDX_APP_COMPAT =
         "androidx.appcompat:appcompat:${BuildDependenciesVersions.ANDROIDX_APP_COMPAT}"
+    const val FRAGMENT = "androidx.fragment:fragment:${BuildDependenciesVersions.FRAGMENT_X}2"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${BuildDependenciesVersions.FRAGMENT_KTX}"
 
 }

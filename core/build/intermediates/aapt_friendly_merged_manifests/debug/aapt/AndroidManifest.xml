@@ -4,7 +4,7 @@
     package="br.com.gabrielmarcos.core" >
 
     <uses-sdk
-        android:minSdkVersion="24"
+        android:minSdkVersion="26"
         android:targetSdkVersion="29" />
 
     <application

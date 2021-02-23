@@ -18,6 +18,7 @@ object BuildDependenciesVersions {
     const val ANDROIDX_CORE_KTX = "1.3.2"
     const val ANDROIDX_APP_COMPAT = "1.2.0"
     const val CORE_KTX = "1.3.2"
+    const val FRAGMENT_X = "1.2.5"
     const val FRAGMENT_KTX = "1.2.5"
 
     /* Interface */
