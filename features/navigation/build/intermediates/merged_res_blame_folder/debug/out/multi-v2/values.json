@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/u003015/AndroidPocs/future_goal/features/navigation/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/colors.xml",
+                    "source": "/Users/u003015/AndroidPocs/future_goal/features/navigation/src/main/res/values/colors.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/strings.xml",
+                    "source": "/Users/u003015/AndroidPocs/future_goal/features/navigation/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",

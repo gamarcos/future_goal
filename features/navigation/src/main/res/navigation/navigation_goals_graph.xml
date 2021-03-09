@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_goals"
-    app:startDestination="@id/goals_home">
+    app:startDestination="@id/pokedex_main">
 
     <fragment
         android:id="@+id/goals_home"
@@ -16,7 +16,7 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/characters_list_fragment"/>
+            app:popUpTo="@+id/characters_list_fragment" />
 
     </fragment>
 
@@ -26,7 +26,11 @@
         android:label="Insert">
         <argument
             android:name="goal_id"
-            app:argType="long"/>
+            app:argType="long" />
     </fragment>
 
+    <fragment
+        android:id="@+id/pokedex_main"
+        android:name="br.com.gabrielmarcos.pokedex.PokedexFragment"
+        android:label="Pokedex" />
 </navigation>

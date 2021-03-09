@@ -50,7 +50,8 @@ android {
     dynamicFeatures = mutableSetOf(
         BuildModule.FEATURES_REGISTER_GOAL,
         BuildModule.FEATURES_REVIEW_GOAL,
-        BuildModule.FEATURES_NAVIGATION
+        BuildModule.FEATURES_NAVIGATION,
+        BuildModule.FEATURES_POKEDEX
     )
 
     compileOptions {

@@ -23,5 +23,6 @@
     <application />
 
     <uses-split android:name="navigation" />
+    <uses-split android:name="pokedex" />
 
 </manifest>

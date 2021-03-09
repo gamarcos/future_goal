@@ -18,7 +18,8 @@ int id menu_toggle_theme 0x82030006
 int id nav_host_fragment 0x82030007
 int id navigation_goals 0x82030008
 int id night 0x82030009
-int id toolbar 0x8203000a
+int id pokedex_main 0x8203000a
+int id toolbar 0x8203000b
 int layout fragment_features_navigation 0x82040000
 int menu toolbar_menu 0x82050000
 int navigation navigation_goals_graph 0x82060000

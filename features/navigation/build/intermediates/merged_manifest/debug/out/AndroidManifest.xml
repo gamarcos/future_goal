@@ -26,4 +26,6 @@
         android:supportsRtl="true"
         android:testOnly="true" />
 
+    <uses-split android:name="pokedex" />
+
 </manifest>

@@ -1,10 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "outputFile": "/Users/u003015/AndroidPocs/future_goal/features/navigation/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/colors.xml",
+                    "source": "/Users/u003015/AndroidPocs/future_goal/features/navigation/src/main/res/values-night/colors.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,105",
+                        "endColumns": "49,51",
+                        "endOffsets": "100,152"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/u003015/AndroidPocs/future_goal/features/navigation/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/u003015/AndroidPocs/future_goal/features/navigation/src/main/res/values/colors.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +29,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values/strings.xml",
+                    "source": "/Users/u003015/AndroidPocs/future_goal/features/navigation/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
@@ -28,21 +43,6 @@
                         "startOffsets": "157",
                         "endColumns": "59",
                         "endOffsets": "212"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/marcosgabriel/AndroidStudioProjects/FutureGoals/features/navigation/src/main/res/values-night/colors.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,105",
-                        "endColumns": "49,51",
-                        "endOffsets": "100,152"
                     }
                 }
             ]
