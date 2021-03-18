@@ -1,7 +1,6 @@
-package br.com.gabrielmarcos.core.database
+package br.com.gabrielmarcos.core.database.sample
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import br.com.gabrielmarcos.core.model.Goal
 import javax.inject.Inject
 

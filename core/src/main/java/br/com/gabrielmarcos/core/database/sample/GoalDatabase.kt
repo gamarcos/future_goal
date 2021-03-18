@@ -1,4 +1,4 @@
-package br.com.gabrielmarcos.core.database
+package br.com.gabrielmarcos.core.database.sample
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

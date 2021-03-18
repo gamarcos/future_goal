@@ -1,4 +1,4 @@
-package br.com.gabrielmarcos.core.database
+package br.com.gabrielmarcos.core.database.sample
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

@@ -1,7 +1,7 @@
 package br.com.gabrielmarcos.core.di
 
 import android.content.Context
-import br.com.gabrielmarcos.core.database.GoalDAO
+import br.com.gabrielmarcos.core.database.sample.GoalDAO
 import br.com.gabrielmarcos.core.di.module.ContextModule
 import br.com.gabrielmarcos.core.di.module.DatabaseModule
 import br.com.gabrielmarcos.core.di.module.UtilsModule

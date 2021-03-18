@@ -2,9 +2,9 @@ package br.com.gabrielmarcos.core.di.module
 
 import android.content.Context
 import androidx.room.Room
-import br.com.gabrielmarcos.core.database.GoalDAO
-import br.com.gabrielmarcos.core.database.GoalDatabase
-import br.com.gabrielmarcos.core.database.GoalDatabaseRepository
+import br.com.gabrielmarcos.core.database.sample.GoalDAO
+import br.com.gabrielmarcos.core.database.sample.GoalDatabase
+import br.com.gabrielmarcos.core.database.sample.GoalDatabaseRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
