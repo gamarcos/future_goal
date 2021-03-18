@@ -2,6 +2,7 @@ package br.com.gabrielmarcos.crud_goals.crud.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -48,11 +50,15 @@ class CrudGoalsFragment : Fragment() {
     private val saveGoal
         get() = requireActivity().findViewById<Button>(R.id.insert_goals_save_button)
 
+    private val deleteGoal
+        get() = requireActivity().findViewById<Button>(R.id.insert_goals_delete_button)
+
     private lateinit var selectedEndGoal: String
 
     private val status = Status.values().map { it.name }
 
     private var needUpdateGoal = false
+    private var initialDate: String? = null
 
     private val args: CrudGoalsFragmentArgs by navArgs()
 
@@ -90,7 +96,7 @@ class CrudGoalsFragment : Fragment() {
     }
 
     private fun handleLoadingView() {
-        needUpdateGoal = (args.goalId > 0).also {
+        needUpdateGoal = (args.goalId.isNotEmpty()).also {
             if (it) viewModel.getGoalById(args.goalId)
         }
     }
@@ -102,9 +108,11 @@ class CrudGoalsFragment : Fragment() {
     }
 
     private fun updateValuesOnFields(goal: Goal) {
+        deleteGoal.visibility = View.VISIBLE
         goalTitle.setText(goal.title)
         goalDescription.setText(goal.description)
         goalStatus.setText(goal.status)
+        initialDate = goal.initAt
         goal.finishAt?.run {
             goalEndTime.setText(instantToStringDate(this))
             selectedEndGoal = this
@@ -116,6 +124,8 @@ class CrudGoalsFragment : Fragment() {
             handleActionCrud()
             findNavController().popBackStack()
         }
+
+        deleteGoal.setOnClickListener { builderDialogConfirm().show() }
     }
 
     private fun handleActionCrud() {
@@ -123,7 +133,7 @@ class CrudGoalsFragment : Fragment() {
             title = goalTitle.text.toString(),
             description = goalDescription.text.toString(),
             status = goalStatus.text.toString(),
-            initAt = getInstantDate(),
+            initAt = initialDate ?: getInstantDate(),
             finishAt = stringToInstant(goalEndTime.text.toString())
         )
 
@@ -150,6 +160,25 @@ class CrudGoalsFragment : Fragment() {
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+    }
+
+    private fun builderDialogConfirm(): AlertDialog {
+        val alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog.setMessage(getString(R.string.insert_goal_dialog_confirmation_message))
+        alertDialog.setCancelable(true)
+
+        alertDialog.setPositiveButton(
+            getString(R.string.insert_goal_dialog_confirmation_button)
+
+        ) { dialog, _ ->
+            dialog.dismiss()
+            viewModel.deleteGoalById(args.goalId)
+            findNavController().popBackStack()
+        }
+
+        alertDialog.setNegativeButton(getString(R.string.insert_goal_dialog_cancel_button)) { dialog, _ -> dialog.cancel() }
+
+        return alertDialog.create()
     }
 
     private fun setupSpinner() {

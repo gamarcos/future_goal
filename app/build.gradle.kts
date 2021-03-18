@@ -86,13 +86,16 @@ dependencies {
     implementation(Kotlin.KOTLIN)
     implementation(Android.ANDROIDX)
     implementation(Android.ANDROIDX_APP_COMPAT)
-    implementation(Firebase.FIREBASE_BOM)
     implementation(Interface.MATERIAL)
     implementation(Interface.CONSTRAINT)
     implementation(JetPack.NAVIGATION_FRAGMENT)
     implementation(DI.DAGGER)
     implementation(PlayCore.PLAY_CORE)
     implementation(Canary.LEAKCANARY)
+
+    implementation(platform(Firebase.FIREBASE_BOM))
+    implementation(Firebase.FIREBASE_DATABASE)
+    implementation(Firebase.FIREBASE_AUTH)
 
     Test.setup.forEach { androidTestImplementation(it) }
 

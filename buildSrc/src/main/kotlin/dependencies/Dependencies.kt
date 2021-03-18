@@ -33,6 +33,8 @@ object Android {
 
 object Firebase {
     const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${BuildDependenciesVersions.FIREBASE_BOM}"
+    const val FIREBASE_DATABASE = "com.google.firebase:firebase-database-ktx"
+    const val FIREBASE_AUTH = "com.google.firebase:firebase-auth-ktx"
 }
 
 object Interface {

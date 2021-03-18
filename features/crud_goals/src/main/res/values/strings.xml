@@ -11,4 +11,10 @@
     <string name="insert_goal_hint_finish_date">Selecione o termino da meta</string>
 
     <string name="insert_goal_save_title">Salvar</string>
+    <string name="insert_goal_delete_title">Remover</string>
+
+
+    <string name="insert_goal_dialog_confirmation_message">Deseja remover essa meta permanentemente ?</string>
+    <string name="insert_goal_dialog_confirmation_button">Remover</string>
+    <string name="insert_goal_dialog_cancel_button">Cancelar</string>
 </resources>

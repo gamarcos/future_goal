@@ -27,5 +27,4 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginVersions.KOTLIN}")
     implementation("com.google.gms:google-services:${PluginVersions.GOOGLE_SERVICES}")
     implementation("androidx.navigation:navigation-safe-args-gradle-plugin:${PluginVersions.NAVIGATION}")
-
 }

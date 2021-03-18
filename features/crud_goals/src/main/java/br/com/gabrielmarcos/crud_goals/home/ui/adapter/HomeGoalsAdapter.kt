@@ -14,7 +14,7 @@ import br.com.gabrielmarcos.crud_goals.R
 class HomeGoalsAdapter :
     ListAdapter<Goal, HomeGoalsAdapter.HomeGoalsAdapterViewHolder>(DiffGoalCallback()) {
 
-    var onItemClick: (id: Long) -> Unit = { _ -> }
+    var onItemClick: (id: String) -> Unit = { _ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeGoalsAdapterViewHolder =
         HomeGoalsAdapterViewHolder(

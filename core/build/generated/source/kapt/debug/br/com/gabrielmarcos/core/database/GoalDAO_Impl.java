@@ -42,12 +42,16 @@ public final class GoalDAO_Impl implements GoalDAO {
     this.__insertionAdapterOfGoal = new EntityInsertionAdapter<Goal>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `future_goal` (`id`,`title`,`description`,`status`,`initAt`,`finishAt`,`remember`,`rememberAt`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `future_goal` (`id`,`title`,`description`,`status`,`initAt`,`finishAt`,`remember`,`rememberAt`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Goal value) {
-        stmt.bindLong(1, value.getId());
+        if (value.getId() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getId());
+        }
         if (value.getTitle() == null) {
           stmt.bindNull(2);
         } else {
@@ -95,7 +99,11 @@ public final class GoalDAO_Impl implements GoalDAO {
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Goal value) {
-        stmt.bindLong(1, value.getId());
+        if (value.getId() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getId());
+        }
         if (value.getTitle() == null) {
           stmt.bindNull(2);
         } else {
@@ -133,7 +141,11 @@ public final class GoalDAO_Impl implements GoalDAO {
         } else {
           stmt.bindString(8, value.getRememberAt());
         }
-        stmt.bindLong(9, value.getId());
+        if (value.getId() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindString(9, value.getId());
+        }
       }
     };
     this.__preparedStmtOfDeleteAllGoals = new SharedSQLiteStatement(__db) {
@@ -206,13 +218,17 @@ public final class GoalDAO_Impl implements GoalDAO {
   }
 
   @Override
-  public Object deleteGoalByID(final long id, final Continuation<? super Unit> p1) {
+  public Object deleteGoalByID(final String id, final Continuation<? super Unit> p1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteGoalByID.acquire();
         int _argIndex = 1;
-        _stmt.bindLong(_argIndex, id);
+        if (id == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, id);
+        }
         __db.beginTransaction();
         try {
           _stmt.executeUpdateDelete();
@@ -246,8 +262,8 @@ public final class GoalDAO_Impl implements GoalDAO {
           final List<Goal> _result = new ArrayList<Goal>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Goal _item;
-            final long _tmpId;
-            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpId;
+            _tmpId = _cursor.getString(_cursorIndexOfId);
             final String _tmpTitle;
             _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
             final String _tmpDescription;
@@ -285,11 +301,15 @@ public final class GoalDAO_Impl implements GoalDAO {
   }
 
   @Override
-  public Object getGoalByID(final long id, final Continuation<? super Goal> p1) {
+  public Object getGoalByID(final String id, final Continuation<? super Goal> p1) {
     final String _sql = "SELECT * FROM future_goal WHERE id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    _statement.bindLong(_argIndex, id);
+    if (id == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, id);
+    }
     return CoroutinesRoom.execute(__db, false, new Callable<Goal>() {
       @Override
       public Goal call() throws Exception {
@@ -305,8 +325,8 @@ public final class GoalDAO_Impl implements GoalDAO {
           final int _cursorIndexOfRememberAt = CursorUtil.getColumnIndexOrThrow(_cursor, "rememberAt");
           final Goal _result;
           if(_cursor.moveToFirst()) {
-            final long _tmpId;
-            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpId;
+            _tmpId = _cursor.getString(_cursorIndexOfId);
             final String _tmpTitle;
             _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
             final String _tmpDescription;

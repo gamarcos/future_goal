@@ -5,12 +5,6 @@ br/com/gabrielmarcos/core/utils/ThemeUtilsImpl_Factory.java
  br.com.gabrielmarcos.core.utils.ThemeUtilsImpl_Factory$InstanceHolder
 br/com/gabrielmarcos/core/BuildConfig.java
  br.com.gabrielmarcos.core.BuildConfig
-br/com/gabrielmarcos/core/di/module/DatabaseModule_ProvideGoalDaoFactory.java
- br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDaoFactory
-br/com/gabrielmarcos/core/di/module/DatabaseModule_ProvideGoalDatabaseFactory.java
- br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDatabaseFactory
-br/com/gabrielmarcos/core/database/GoalDatabaseRepository_Factory.java
- br.com.gabrielmarcos.core.database.GoalDatabaseRepository_Factory
 br/com/gabrielmarcos/core/database/GoalDAO_Impl.java
  br.com.gabrielmarcos.core.database.GoalDAO_Impl
  br.com.gabrielmarcos.core.database.GoalDAO_Impl$1
@@ -23,12 +17,24 @@ br/com/gabrielmarcos/core/database/GoalDAO_Impl.java
  br.com.gabrielmarcos.core.database.GoalDAO_Impl$7
  br.com.gabrielmarcos.core.database.GoalDAO_Impl$8
  br.com.gabrielmarcos.core.database.GoalDAO_Impl$9
+br/com/gabrielmarcos/core/database/GoalDatabase_Impl.java
+ br.com.gabrielmarcos.core.database.GoalDatabase_Impl
+ br.com.gabrielmarcos.core.database.GoalDatabase_Impl$1
 br/com/gabrielmarcos/core/di/module/DatabaseModule_ProvideGoalDatabaseRepositoryFactory.java
  br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDatabaseRepositoryFactory
+br/com/gabrielmarcos/core/di/module/DatabaseModule_ProvideGoalDaoFactory.java
+ br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDaoFactory
+br/com/gabrielmarcos/core/di/module/DatabaseModule_ProvideGoalDatabaseFactory.java
+ br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDatabaseFactory
+br/com/gabrielmarcos/core/database/GoalDatabaseRepository_Factory.java
+ br.com.gabrielmarcos.core.database.GoalDatabaseRepository_Factory
+br/com/gabrielmarcos/core/di/module/FirebaseModule_ProvideFirebaseDatabaseFactory.java
+ br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideFirebaseDatabaseFactory
 br/com/gabrielmarcos/core/di/DaggerCoreComponent.java
  br.com.gabrielmarcos.core.di.DaggerCoreComponent
  br.com.gabrielmarcos.core.di.DaggerCoreComponent$1
  br.com.gabrielmarcos.core.di.DaggerCoreComponent$Builder
-br/com/gabrielmarcos/core/database/GoalDatabase_Impl.java
- br.com.gabrielmarcos.core.database.GoalDatabase_Impl
- br.com.gabrielmarcos.core.database.GoalDatabase_Impl$1
+br/com/gabrielmarcos/core/di/module/FirebaseModule_ProvideFirebaseAuthFactory.java
+ br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideFirebaseAuthFactory
+br/com/gabrielmarcos/core/di/module/FirebaseModule_ProvideGoalsRemoteRepositoryFactory.java
+ br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideGoalsRemoteRepositoryFactory

@@ -2,6 +2,7 @@
 package br.com.gabrielmarcos.crud_goals.crud.di;
 
 import br.com.gabrielmarcos.core.database.GoalDatabaseRepository;
+import br.com.gabrielmarcos.core.network.repositories.GoalsFirebaseRepository;
 import br.com.gabrielmarcos.crud_goals.crud.ui.CrudGoalsViewModel;
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
@@ -16,24 +17,29 @@ public final class CrudGoalsModule_ProvidesInsertGoalsFragmentFactory implements
 
   private final Provider<GoalDatabaseRepository> repositoryProvider;
 
+  private final Provider<GoalsFirebaseRepository> firebaseRepositoryProvider;
+
   public CrudGoalsModule_ProvidesInsertGoalsFragmentFactory(CrudGoalsModule module,
-      Provider<GoalDatabaseRepository> repositoryProvider) {
+      Provider<GoalDatabaseRepository> repositoryProvider,
+      Provider<GoalsFirebaseRepository> firebaseRepositoryProvider) {
     this.module = module;
     this.repositoryProvider = repositoryProvider;
+    this.firebaseRepositoryProvider = firebaseRepositoryProvider;
   }
 
   @Override
   public CrudGoalsViewModel get() {
-    return providesInsertGoalsFragment(module, repositoryProvider.get());
+    return providesInsertGoalsFragment(module, repositoryProvider.get(), firebaseRepositoryProvider.get());
   }
 
   public static CrudGoalsModule_ProvidesInsertGoalsFragmentFactory create(CrudGoalsModule module,
-      Provider<GoalDatabaseRepository> repositoryProvider) {
-    return new CrudGoalsModule_ProvidesInsertGoalsFragmentFactory(module, repositoryProvider);
+      Provider<GoalDatabaseRepository> repositoryProvider,
+      Provider<GoalsFirebaseRepository> firebaseRepositoryProvider) {
+    return new CrudGoalsModule_ProvidesInsertGoalsFragmentFactory(module, repositoryProvider, firebaseRepositoryProvider);
   }
 
   public static CrudGoalsViewModel providesInsertGoalsFragment(CrudGoalsModule instance,
-      GoalDatabaseRepository repository) {
-    return Preconditions.checkNotNull(instance.providesInsertGoalsFragment(repository), "Cannot return null from a non-@Nullable @Provides method");
+      GoalDatabaseRepository repository, GoalsFirebaseRepository firebaseRepository) {
+    return Preconditions.checkNotNull(instance.providesInsertGoalsFragment(repository, firebaseRepository), "Cannot return null from a non-@Nullable @Provides method");
   }
 }

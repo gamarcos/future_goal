@@ -5,6 +5,10 @@
     <dimen name="insert_goal_fields_min_margin">16dp</dimen>
     <dimen name="insert_goal_fields_min_padding">16dp</dimen>
     <dimen name="insert_goal_width_save_button">50dp</dimen>
+    <string name="insert_goal_delete_title">Remover</string>
+    <string name="insert_goal_dialog_cancel_button">Cancelar</string>
+    <string name="insert_goal_dialog_confirmation_button">Remover</string>
+    <string name="insert_goal_dialog_confirmation_message">Deseja remover essa meta permanentemente ?</string>
     <string name="insert_goal_hint_description">Descrição</string>
     <string name="insert_goal_hint_finish_date">Selecione o termino da meta</string>
     <string name="insert_goal_hint_title">Título</string>

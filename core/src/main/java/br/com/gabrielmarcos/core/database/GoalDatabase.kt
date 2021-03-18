@@ -8,7 +8,7 @@ import br.com.gabrielmarcos.core.model.Goal
 @Database(
     entities = [Goal::class],
     exportSchema = false,
-    version = 3
+    version = 4
 )
 abstract class GoalDatabase: RoomDatabase() {
 

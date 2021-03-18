@@ -10,13 +10,13 @@ interface GoalDAO {
     fun getAllGoals(): LiveData<List<Goal>>
 
     @Query("SELECT * FROM future_goal WHERE id = :id")
-    suspend fun getGoalByID(id: Long): Goal?
+    suspend fun getGoalByID(id: String): Goal?
 
     @Query("DELETE FROM future_goal")
     suspend fun deleteAllGoals()
 
     @Query("DELETE FROM future_goal WHERE id = :id")
-    suspend fun deleteGoalByID(id: Long)
+    suspend fun deleteGoalByID(id: String)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGoal(goal: Goal)

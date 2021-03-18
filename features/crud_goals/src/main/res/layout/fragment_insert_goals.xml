@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/insert_goal_fields_min_margin"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -102,8 +103,22 @@
         android:id="@+id/insert_goals_save_button"
         android:layout_width="0dp"
         android:layout_height="@dimen/insert_goal_width_save_button"
+        android:layout_marginHorizontal="@dimen/insert_goal_fields_min_margin"
         android:text="@string/insert_goal_save_title"
-        android:layout_margin="@dimen/insert_goal_fields_min_margin"
+        app:layout_constraintBottom_toTopOf="@+id/insert_goals_delete_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insert_goal_finish_date_content"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/insert_goals_delete_button"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/insert_goal_width_save_button"
+        android:text="@string/insert_goal_delete_title"
+        android:visibility="gone"
+        android:layout_marginHorizontal="@dimen/insert_goal_fields_min_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

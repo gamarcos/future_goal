@@ -5,6 +5,7 @@ import br.com.gabrielmarcos.core.database.GoalDAO;
 import br.com.gabrielmarcos.core.database.GoalDatabaseRepository;
 import br.com.gabrielmarcos.core.database.GoalDatabaseRepository_Factory;
 import br.com.gabrielmarcos.core.di.CoreComponent;
+import br.com.gabrielmarcos.core.network.repositories.GoalsFirebaseRepository;
 import br.com.gabrielmarcos.crud_goals.home.ui.HomeGoalsFragment;
 import br.com.gabrielmarcos.crud_goals.home.ui.HomeGoalsFragment_MembersInjector;
 import br.com.gabrielmarcos.crud_goals.home.ui.HomeGoalsViewModel;
@@ -21,6 +22,8 @@ public final class DaggerHomeGoalsComponent implements HomeGoalsComponent {
   private Provider<GoalDAO> goalDAOProvider;
 
   private Provider<GoalDatabaseRepository> goalDatabaseRepositoryProvider;
+
+  private Provider<GoalsFirebaseRepository> goalsRemoteRepositoryProvider;
 
   private Provider<HomeGoalsViewModel> providesHomeGoalsViewModelProvider;
 
@@ -41,7 +44,8 @@ public final class DaggerHomeGoalsComponent implements HomeGoalsComponent {
       final CoreComponent coreComponentParam) {
     this.goalDAOProvider = new br_com_gabrielmarcos_core_di_CoreComponent_goalDAO(coreComponentParam);
     this.goalDatabaseRepositoryProvider = GoalDatabaseRepository_Factory.create(goalDAOProvider);
-    this.providesHomeGoalsViewModelProvider = DoubleCheck.provider(HomeGoalsModule_ProvidesHomeGoalsViewModelFactory.create(homeGoalsModuleParam, goalDatabaseRepositoryProvider));
+    this.goalsRemoteRepositoryProvider = new br_com_gabrielmarcos_core_di_CoreComponent_goalsRemoteRepository(coreComponentParam);
+    this.providesHomeGoalsViewModelProvider = DoubleCheck.provider(HomeGoalsModule_ProvidesHomeGoalsViewModelFactory.create(homeGoalsModuleParam, goalDatabaseRepositoryProvider, goalsRemoteRepositoryProvider));
     this.providesHomeGoalsAdapterProvider = DoubleCheck.provider(HomeGoalsModule_ProvidesHomeGoalsAdapterFactory.create(homeGoalsModuleParam));
   }
 
@@ -91,6 +95,19 @@ public final class DaggerHomeGoalsComponent implements HomeGoalsComponent {
     @Override
     public GoalDAO get() {
       return Preconditions.checkNotNull(coreComponent.goalDAO(), "Cannot return null from a non-@Nullable component method");
+    }
+  }
+
+  private static class br_com_gabrielmarcos_core_di_CoreComponent_goalsRemoteRepository implements Provider<GoalsFirebaseRepository> {
+    private final CoreComponent coreComponent;
+
+    br_com_gabrielmarcos_core_di_CoreComponent_goalsRemoteRepository(CoreComponent coreComponent) {
+      this.coreComponent = coreComponent;
+    }
+
+    @Override
+    public GoalsFirebaseRepository get() {
+      return Preconditions.checkNotNull(coreComponent.goalsRemoteRepository(), "Cannot return null from a non-@Nullable component method");
     }
   }
 }

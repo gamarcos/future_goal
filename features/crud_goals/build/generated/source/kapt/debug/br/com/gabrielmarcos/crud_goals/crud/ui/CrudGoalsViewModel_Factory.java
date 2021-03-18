@@ -2,6 +2,7 @@
 package br.com.gabrielmarcos.crud_goals.crud.ui;
 
 import br.com.gabrielmarcos.core.database.GoalDatabaseRepository;
+import br.com.gabrielmarcos.core.network.repositories.GoalsFirebaseRepository;
 import dagger.internal.Factory;
 import javax.inject.Provider;
 
@@ -12,21 +13,27 @@ import javax.inject.Provider;
 public final class CrudGoalsViewModel_Factory implements Factory<CrudGoalsViewModel> {
   private final Provider<GoalDatabaseRepository> repositoryProvider;
 
-  public CrudGoalsViewModel_Factory(Provider<GoalDatabaseRepository> repositoryProvider) {
+  private final Provider<GoalsFirebaseRepository> firebaseRepositoryProvider;
+
+  public CrudGoalsViewModel_Factory(Provider<GoalDatabaseRepository> repositoryProvider,
+      Provider<GoalsFirebaseRepository> firebaseRepositoryProvider) {
     this.repositoryProvider = repositoryProvider;
+    this.firebaseRepositoryProvider = firebaseRepositoryProvider;
   }
 
   @Override
   public CrudGoalsViewModel get() {
-    return newInstance(repositoryProvider.get());
+    return newInstance(repositoryProvider.get(), firebaseRepositoryProvider.get());
   }
 
   public static CrudGoalsViewModel_Factory create(
-      Provider<GoalDatabaseRepository> repositoryProvider) {
-    return new CrudGoalsViewModel_Factory(repositoryProvider);
+      Provider<GoalDatabaseRepository> repositoryProvider,
+      Provider<GoalsFirebaseRepository> firebaseRepositoryProvider) {
+    return new CrudGoalsViewModel_Factory(repositoryProvider, firebaseRepositoryProvider);
   }
 
-  public static CrudGoalsViewModel newInstance(GoalDatabaseRepository repository) {
-    return new CrudGoalsViewModel(repository);
+  public static CrudGoalsViewModel newInstance(GoalDatabaseRepository repository,
+      GoalsFirebaseRepository firebaseRepository) {
+    return new CrudGoalsViewModel(repository, firebaseRepository);
   }
 }

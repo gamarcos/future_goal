@@ -7,7 +7,8 @@ import java.util.*
 
 @Entity(tableName = "future_goal")
 data class Goal(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    @PrimaryKey
+    @ColumnInfo(name = "id") val id: String = UUID.randomUUID().toString(),
     @ColumnInfo(name = "title") val title: String = "",
     @ColumnInfo(name = "description") val description: String = "",
     @ColumnInfo(name = "status") val status: String? = Status.TODO.name,

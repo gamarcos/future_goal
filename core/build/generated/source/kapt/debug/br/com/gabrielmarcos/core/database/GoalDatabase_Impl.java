@@ -27,12 +27,12 @@ public final class GoalDatabase_Impl extends GoalDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(4) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `future_goal` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `status` TEXT, `initAt` TEXT NOT NULL, `finishAt` TEXT, `remember` INTEGER, `rememberAt` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `future_goal` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `status` TEXT, `initAt` TEXT NOT NULL, `finishAt` TEXT, `remember` INTEGER, `rememberAt` TEXT, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '36e74c6e06860176d2623e0ac8212689')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14a89d3d7dd7c7e493216e07290ebede')");
       }
 
       @Override
@@ -77,7 +77,7 @@ public final class GoalDatabase_Impl extends GoalDatabase {
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
         final HashMap<String, TableInfo.Column> _columnsFutureGoal = new HashMap<String, TableInfo.Column>(8);
-        _columnsFutureGoal.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFutureGoal.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("description", new TableInfo.Column("description", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFutureGoal.put("status", new TableInfo.Column("status", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -96,7 +96,7 @@ public final class GoalDatabase_Impl extends GoalDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "36e74c6e06860176d2623e0ac8212689", "3957cd5fbaf7b0e201101d5a6a5c23dd");
+    }, "14a89d3d7dd7c7e493216e07290ebede", "66ceaccead5cc624a1a5db291940cfe0");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

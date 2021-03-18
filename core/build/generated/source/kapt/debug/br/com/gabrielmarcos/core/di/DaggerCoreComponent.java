@@ -9,8 +9,15 @@ import br.com.gabrielmarcos.core.di.module.ContextModule_ProvideContextFactory;
 import br.com.gabrielmarcos.core.di.module.DatabaseModule;
 import br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDaoFactory;
 import br.com.gabrielmarcos.core.di.module.DatabaseModule_ProvideGoalDatabaseFactory;
+import br.com.gabrielmarcos.core.di.module.FirebaseModule;
+import br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideFirebaseAuthFactory;
+import br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideFirebaseDatabaseFactory;
+import br.com.gabrielmarcos.core.di.module.FirebaseModule_ProvideGoalsRemoteRepositoryFactory;
+import br.com.gabrielmarcos.core.network.repositories.GoalsFirebaseRepository;
 import br.com.gabrielmarcos.core.utils.ThemeUtils;
 import br.com.gabrielmarcos.core.utils.ThemeUtilsImpl_Factory;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.inject.Provider;
@@ -28,10 +35,16 @@ public final class DaggerCoreComponent implements CoreComponent {
 
   private Provider<ThemeUtils> bindThemeUtilsProvider;
 
-  private DaggerCoreComponent(ContextModule contextModuleParam,
-      DatabaseModule databaseModuleParam) {
+  private Provider<FirebaseDatabase> provideFirebaseDatabaseProvider;
 
-    initialize(contextModuleParam, databaseModuleParam);
+  private Provider<FirebaseAuth> provideFirebaseAuthProvider;
+
+  private Provider<GoalsFirebaseRepository> provideGoalsRemoteRepositoryProvider;
+
+  private DaggerCoreComponent(ContextModule contextModuleParam, DatabaseModule databaseModuleParam,
+      FirebaseModule firebaseModuleParam) {
+
+    initialize(contextModuleParam, databaseModuleParam, firebaseModuleParam);
   }
 
   public static Builder builder() {
@@ -40,11 +53,14 @@ public final class DaggerCoreComponent implements CoreComponent {
 
   @SuppressWarnings("unchecked")
   private void initialize(final ContextModule contextModuleParam,
-      final DatabaseModule databaseModuleParam) {
+      final DatabaseModule databaseModuleParam, final FirebaseModule firebaseModuleParam) {
     this.provideContextProvider = DoubleCheck.provider(ContextModule_ProvideContextFactory.create(contextModuleParam));
     this.provideGoalDatabaseProvider = DoubleCheck.provider(DatabaseModule_ProvideGoalDatabaseFactory.create(databaseModuleParam, provideContextProvider));
     this.provideGoalDaoProvider = DoubleCheck.provider(DatabaseModule_ProvideGoalDaoFactory.create(databaseModuleParam, provideGoalDatabaseProvider));
     this.bindThemeUtilsProvider = DoubleCheck.provider((Provider) ThemeUtilsImpl_Factory.create());
+    this.provideFirebaseDatabaseProvider = DoubleCheck.provider(FirebaseModule_ProvideFirebaseDatabaseFactory.create(firebaseModuleParam));
+    this.provideFirebaseAuthProvider = DoubleCheck.provider(FirebaseModule_ProvideFirebaseAuthFactory.create(firebaseModuleParam));
+    this.provideGoalsRemoteRepositoryProvider = DoubleCheck.provider(FirebaseModule_ProvideGoalsRemoteRepositoryFactory.create(firebaseModuleParam, provideFirebaseDatabaseProvider, provideFirebaseAuthProvider));
   }
 
   @Override
@@ -62,10 +78,17 @@ public final class DaggerCoreComponent implements CoreComponent {
     return bindThemeUtilsProvider.get();
   }
 
+  @Override
+  public GoalsFirebaseRepository goalsRemoteRepository() {
+    return provideGoalsRemoteRepositoryProvider.get();
+  }
+
   public static final class Builder {
     private ContextModule contextModule;
 
     private DatabaseModule databaseModule;
+
+    private FirebaseModule firebaseModule;
 
     private Builder() {
     }
@@ -80,12 +103,20 @@ public final class DaggerCoreComponent implements CoreComponent {
       return this;
     }
 
+    public Builder firebaseModule(FirebaseModule firebaseModule) {
+      this.firebaseModule = Preconditions.checkNotNull(firebaseModule);
+      return this;
+    }
+
     public CoreComponent build() {
       Preconditions.checkBuilderRequirement(contextModule, ContextModule.class);
       if (databaseModule == null) {
         this.databaseModule = new DatabaseModule();
       }
-      return new DaggerCoreComponent(contextModule, databaseModule);
+      if (firebaseModule == null) {
+        this.firebaseModule = new FirebaseModule();
+      }
+      return new DaggerCoreComponent(contextModule, databaseModule, firebaseModule);
     }
   }
 }

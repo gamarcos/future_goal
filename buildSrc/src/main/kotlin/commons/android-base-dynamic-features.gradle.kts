@@ -1,5 +1,4 @@
 import dependencies.Android
-import dependencies.Firebase
 import dependencies.Kotlin
 import dependencies.Test
 import dependencies.Interface
@@ -57,7 +56,6 @@ dependencies {
     implementation(Kotlin.KOTLIN)
     implementation(Android.ANDROIDX)
     implementation(Android.ANDROIDX_APP_COMPAT)
-    implementation(Firebase.FIREBASE_BOM)
     implementation(Interface.MATERIAL)
     implementation(Interface.CONSTRAINT)
     implementation(JetPack.NAVIGATION_FRAGMENT)
