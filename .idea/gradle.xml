@@ -18,7 +18,6 @@
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/crud_goals" />
             <option value="$PROJECT_DIR$/features/navigation" />
-            <option value="$PROJECT_DIR$/features/review" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

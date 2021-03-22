@@ -49,7 +49,6 @@ android {
 
     dynamicFeatures = mutableSetOf(
         BuildModule.FEATURES_REGISTER_GOAL,
-        BuildModule.FEATURES_REVIEW_GOAL,
         BuildModule.FEATURES_NAVIGATION
     )
 
@@ -71,11 +70,7 @@ android {
         unitTests.isReturnDefaultValues = true
     }
 
-    repositories {
-        flatDir {
-            dirs("libs")
-        }
-    }
+    repositories { flatDir { dirs("libs") } }
 }
 
 dependencies {
