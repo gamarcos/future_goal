@@ -13,6 +13,7 @@
 .idea/misc.xml
 .idea/compiler.xml
 .idea/jarRepositories.xml
+.idea/vcs.xml
 # Android Studio 3 in .gitignore file.
 .idea/caches
 .idea/modules.xml
@@ -24,3 +25,9 @@ build
 /captures
 .externalNativeBuild
 .cxx
+
+# Google Files
+./app/google-services.json
+
+# Others
+X#
