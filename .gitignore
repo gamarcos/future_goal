@@ -27,7 +27,7 @@ build
 .cxx
 
 # Google Files
-./app/google-services.json
+app/google-services.json
 
 # Others
 X#
