@@ -98,4 +98,4 @@ dependencies {
     kapt(AnnotationProcessorsDependencies.DAGGER)
 }
 
-apply(plugin = "com.google.gms.google-services")
+//apply(plugin = "com.google.gms.google-services")
