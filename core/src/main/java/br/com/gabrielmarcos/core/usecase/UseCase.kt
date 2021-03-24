@@ -2,22 +2,34 @@ package br.com.gabrielmarcos.core.usecase
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-abstract class UseCase<I, out O> {
-    abstract operator fun invoke(param: I)
+abstract class UseCase<in I> : CoroutineScope {
+
+    private val mainDispatcher = Dispatchers.Main
+    private val ioDispatcher = Dispatchers.IO
+    private val parentJob = SupervisorJob()
+
+    override val coroutineContext: CoroutineContext
+        get() = parentJob + mainDispatcher
+
+    protected abstract suspend fun run(input: I)
+
+    operator fun invoke(input: I) {
+        launch {
+            withContext(ioDispatcher) {
+                run(input)
+            }
+        }
+    }
 }
 
 class TestUse(
-    private val liveData: MutableLiveData<String>,
-    private val scope: CoroutineScope
-) : UseCase<String, String>() {
+    private val liveData: MutableLiveData<String>
+) : UseCase<String>() {
 
-    override fun invoke(param: String) {
-        scope.launch {
-            withContext(Dispatchers.IO) {
-                liveData.postValue(test(param))
-            }
-        }
+    override suspend fun run(input: String) {
+        liveData.postValue(test(input))
     }
 
     private suspend fun test(param: String): String {
@@ -25,5 +37,3 @@ class TestUse(
         return "${param}teste"
     }
 }
-
-

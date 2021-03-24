@@ -1,13 +1,13 @@
 package br.com.gabrielmarcos.pokedex
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import br.com.gabrielmarcos.core.usecase.TestUse
-import kotlinx.coroutines.GlobalScope
 
 class PokedexFragment : Fragment() {
 
@@ -26,10 +26,7 @@ class PokedexFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val useCase = TestUse(
-            test,
-            GlobalScope
-        )
+        val useCase = TestUse(test)
 
         useCase("Hello, ")
 
