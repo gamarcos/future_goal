@@ -1,3 +1,4 @@
 <resources>
     <string name="home_toolbar_theme">Toggle Theme</string>
+    <string name="pokeapi">https://pokeapi.co</string>
 </resources>

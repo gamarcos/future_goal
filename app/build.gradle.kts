@@ -90,6 +90,8 @@ dependencies {
     implementation(Interface.CONSTRAINT)
     implementation(JetPack.NAVIGATION_FRAGMENT)
     implementation(DI.DAGGER)
+    DI.setup().forEach { implementation(it) }
+    DI.setupProcessor().forEach { kapt(it) }
     implementation(PlayCore.PLAY_CORE)
     implementation(Canary.LEAKCANARY)
 
