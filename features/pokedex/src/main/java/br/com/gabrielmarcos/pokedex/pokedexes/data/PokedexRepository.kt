@@ -5,7 +5,6 @@ import br.com.gabrielmarcos.pokedex.pokedexes.data.model.PokedexesResponse
 import javax.inject.Inject
 
 interface PokedexRepository {
-
     suspend fun getPokedexes(): PokedexesResponse
     suspend fun getPokedexesPage(url: String): PokedexesResponse
 }
