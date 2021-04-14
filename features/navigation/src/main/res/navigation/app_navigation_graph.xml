@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/pokedex_main"
-        android:name="br.com.gabrielmarcos.pokedex.pokedexes.PokedexesFragment"
+        android:name="br.com.gabrielmarcos.pokemon.pokemons.PokemonsFragment"
         android:label="Pokedex" />
 </navigation>

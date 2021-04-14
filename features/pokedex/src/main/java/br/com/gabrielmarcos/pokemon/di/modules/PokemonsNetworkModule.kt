@@ -1,9 +1,9 @@
-package br.com.gabrielmarcos.pokedex.di.modules
+package br.com.gabrielmarcos.pokemon.di.modules
 
 import android.content.Context
 import br.com.gabrielmarcos.core.di.scopes.FeatureScope
-import br.com.gabrielmarcos.pokedex.R
-import br.com.gabrielmarcos.pokedex.di.qualifier.PokedexRetrofit
+import br.com.gabrielmarcos.pokemon.R
+import br.com.gabrielmarcos.pokemon.di.qualifier.PokemonsRetrofit
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -16,11 +16,11 @@ private const val TIME_OUT_READ = 30L
 private const val TIME_OUT_CONNECTION = 30L
 
 @Module
-class PokedexNetworkModule {
+class PokemonsNetworkModule {
 
     @Provides
     @FeatureScope
-    @PokedexRetrofit
+    @PokemonsRetrofit
     fun providesRetrofit(
         context: Context
     ): Retrofit {

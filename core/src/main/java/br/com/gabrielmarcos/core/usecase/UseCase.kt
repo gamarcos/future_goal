@@ -22,7 +22,7 @@ abstract class UseCase<in Params, R>(
 
     operator fun invoke(
         coroutineScope: CoroutineScope,
-        input: Params? = null,
+        params: Params? = null,
         dsl: ResultDispatcher<R>.() -> Unit
     ): Job {
         checkJobReset()
@@ -32,7 +32,7 @@ abstract class UseCase<in Params, R>(
 
         return runScope.launch {
             postScope.launch { dispatcher.onLoading(Result.Loading) }
-            startChannelAndRun(input)
+            startChannelAndRun(params)
         }.also { job = it }
     }
 

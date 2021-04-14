@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.gabrielmarcos.pokedex">
+    package="br.com.gabrielmarcos.pokemon">
 
     <dist:module
         dist:instant="false"

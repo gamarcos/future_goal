@@ -1,4 +1,4 @@
-package br.com.gabrielmarcos.pokedex.pokedexes.domain.model
+package br.com.gabrielmarcos.pokemon.pokemons.domain.model
 
 typealias Pokedexes = List<Pokedex>
 

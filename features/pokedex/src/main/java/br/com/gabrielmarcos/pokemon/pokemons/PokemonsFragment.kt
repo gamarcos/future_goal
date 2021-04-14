@@ -1,4 +1,4 @@
-package br.com.gabrielmarcos.pokedex.pokedexes
+package br.com.gabrielmarcos.pokemon.pokemons
 
 import android.content.Context
 import android.os.Bundle
@@ -7,21 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import br.com.gabrielmarcos.core.extensions.observe
 import br.com.gabrielmarcos.futuregoals.GoalApplication.Companion.coreComponent
-import br.com.gabrielmarcos.pokedex.R
-import br.com.gabrielmarcos.pokedex.di.DaggerPokedexComponent
+import br.com.gabrielmarcos.pokemon.R
+import br.com.gabrielmarcos.pokemon.di.DaggerPokemonsComponent
 import kotlinx.android.synthetic.main.fragment_features_pokedex.*
 import javax.inject.Inject
 
-class PokedexesFragment : Fragment() {
+class PokemonsFragment : Fragment() {
 
     @Inject
-    lateinit var viewModel: PokedexesViewModel
+    lateinit var viewModel: PokemonsViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        DaggerPokedexComponent
+        DaggerPokemonsComponent
             .builder()
             .coreComponent(coreComponent(requireContext()))
             .build()
@@ -40,19 +40,20 @@ class PokedexesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getPokedexes()
-        viewModel.getNextPokedexes()
 
-        viewModel.loading.observe(viewLifecycleOwner, Observer {
+        viewModel.getPokemons()
+//        viewModel.requestMethodWithDalay { viewModel.getNextPokedexes() }
+
+        viewLifecycleOwner.observe(viewModel.loading) {
             loading.visibility = if (it) View.VISIBLE else View.GONE
-        })
+        }
 
-        viewModel.pokedexes.observe(viewLifecycleOwner, Observer {
+        viewLifecycleOwner.observe(viewModel.pokedexes) {
             Toast.makeText(context, it?.size.toString(), Toast.LENGTH_LONG).show()
-        })
+        }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewLifecycleOwner.observe(viewModel.error) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-        })
+        }
     }
 }
